@@ -427,6 +427,10 @@ namespace MapsExchange
             var comp = serverData.CompletedAreas;
             //var shapered = serverData.ShaperElderAreas;
 
+            foreach (var map in bonusComp)
+            {
+                LogMsg(map.ToString());
+            }
             
             var drawListPos = new Vector2(200, 200);
 
@@ -440,8 +444,8 @@ namespace MapsExchange
                         continue;
 
                     var mapArea = mapComponent.Area;
-                    LogMsg(mapArea.ToString());
-                    LogMsg(bonusComp.ToString());
+                    //LogMsg(mapArea.ToString());
+                    //LogMsg(bonusComp.ToString());
                     //var shaper = shapered.Contains(mapArea);
 
                     if (bonusComp.Contains(mapArea)) continue;
