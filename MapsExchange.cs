@@ -418,7 +418,7 @@ namespace MapsExchange
         {
             var ingameState = GameController.Game.IngameState;
 
-            var serverData = ingameState.ServerData;
+            var serverData = ingameState.IngameData.ServerData;
             var npcInv = serverData.NPCInventories;
 
             if (npcInv == null || npcInv.Count == 0) return;
