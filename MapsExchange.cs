@@ -205,7 +205,7 @@ namespace MapsExchange
 
         public override void Render()
         {
-            DrawNpcInvMaps()
+            DrawNpcInvMaps();
             //var stash = GameController.IngameState.IngameUi.StashElement;
 
         }
