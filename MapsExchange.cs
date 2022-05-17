@@ -414,17 +414,6 @@ namespace MapsExchange
             }
         }
 
-        private void DrawPlayerInvMaps()
-        {
-            var ingameState = GameController.Game.IngameState;
-
-            if (ingameState.IngameUi.InventoryPanel.IsVisible)
-            {
-                var inventoryZone = ingameState.IngameUi.InventoryPanel[InventoryIndex.PlayerInventory].VisibleInventoryItems;
-                HiglightAllMaps(inventoryZone);
-            }
-        }
-
         private void DrawNpcInvMaps()
         {
             var ingameState = GameController.Game.IngameState;
@@ -451,7 +440,8 @@ namespace MapsExchange
                         continue;
 
                     var mapArea = mapComponent.Area;
-                    LogMsg(mapArea.ToString);
+                    LogMsg(mapArea.ToString());
+                    LogMsg(bonusComp.ToString());
                     //var shaper = shapered.Contains(mapArea);
 
                     if (bonusComp.Contains(mapArea)) continue;
