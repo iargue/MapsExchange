@@ -205,38 +205,9 @@ namespace MapsExchange
 
         public override void Render()
         {
-            DrawPlayerInvMaps();
-            DrawNpcInvMaps();
-            DrawAtlasMaps();
+            DrawNpcInvMaps()
+            //var stash = GameController.IngameState.IngameUi.StashElement;
 
-            var stash = GameController.IngameState.IngameUi.StashElement;
-
-            if (stash.IsVisible)
-            {
-                var visibleStash = stash.VisibleStash;
-
-                if (visibleStash != null)
-                {
-                    var items = visibleStash.VisibleInventoryItems;
-
-                    if (items != null)
-                    {
-                        HiglightExchangeMaps();
-                        HiglightAllMaps(items);
-
-                        if (CurrentStashAddr != visibleStash.Address)
-                        {
-                            CurrentStashAddr = visibleStash.Address;
-                            var updateMapsCount = Settings.MapTabNode.Value == stash.IndexVisibleStash;
-                            UpdateData(items, updateMapsCount);
-                        }
-                    }
-                    else
-                        CurrentStashAddr = -1;
-                }
-            }
-            else
-                CurrentStashAddr = -1;
         }
 
         private void DrawAtlasMaps()
@@ -467,6 +438,7 @@ namespace MapsExchange
             var comp = serverData.CompletedAreas;
             //var shapered = serverData.ShaperElderAreas;
 
+            
             var drawListPos = new Vector2(200, 200);
 
             foreach (var inv in npcInv)
@@ -479,6 +451,7 @@ namespace MapsExchange
                         continue;
 
                     var mapArea = mapComponent.Area;
+                    LogMsg(mapArea.ToString);
                     //var shaper = shapered.Contains(mapArea);
 
                     if (bonusComp.Contains(mapArea)) continue;
